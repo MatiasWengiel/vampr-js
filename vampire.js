@@ -61,7 +61,6 @@ class Vampire {
   get allMillennialVampires() {
     let millenials = [];
     for (const eachOffspring of this.offspring) {
-      // console.log(eachOffspring.yearConverted)
       if (eachOffspring.yearConverted >= 1980) {
         millenials.push(eachOffspring)
       }
