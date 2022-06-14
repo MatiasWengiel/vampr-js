@@ -34,9 +34,62 @@ class Vampire {
   isMoreSeniorThan(vampire) {
     const thisVampireGeneration = this.numberOfVampiresFromOriginal;
     const vampireToCompare = vampire.numberOfVampiresFromOriginal;
+<<<<<<< HEAD
+
+    return thisVampireGeneration < vampireToCompare;
+=======
 
     return thisVampireGeneration < vampireToCompare;
   }
+
+  /** Tree traversal methods **/
+
+  // Returns the vampire object with that name, or null if no vampire exists with that name
+  vampireWithName(name) {
+
+    if (this.name === name) {
+      return this
+    }
+
+    for (const offspring of this.offspring) {
+      const offspringCheck = offspring.vampireWithName(name)
+      if (offspringCheck) { //offspringCheck will either be null (falsey) or the found name (from line 46). So there is no need to check if offspringCheck.name === name again.
+        return offspringCheck
+      }
+    }
+
+    return null
+  }
+
+  // Returns the total number of vampires that exist
+  get totalDescendents() {
+    let descendents = 0;
+    for (const eachDescendent of this.offspring) {
+      descendents++
+      const furtherDescendents = eachDescendent.totalDescendents
+      descendents += furtherDescendents
+    }
+
+    return descendents;
+  }
+
+  // Returns an array of all the vampires that were converted after 1980
+  get allMillennialVampires() {
+    let millenials = [];
+    for (const eachOffspring of this.offspring) {
+      if (eachOffspring.yearConverted >= 1980) {
+        millenials.push(eachOffspring)
+      }
+      
+      if (eachOffspring.offspring.length > 0) {
+        millenials = millenials.concat(eachOffspring.allMillennialVampires)
+      }
+    }
+
+    return millenials
+>>>>>>> traversal
+  }
+
 
   /** Stretch **/
 
@@ -52,10 +105,17 @@ class Vampire {
     //Quick checks to see if the root vampire is involved (root vampire has no creator)
     if (!this.creator) return this
     if (!vampire.creator) return vampire
+<<<<<<< HEAD
 
     //Quick check to see if the vampires compared are the same
     if (this === vampire) return this
 
+=======
+
+    //Quick check to see if the vampires compared are the same
+    if (this === vampire) return this
+
+>>>>>>> traversal
     //Quick check to see if the most senior vampire is the direct ancestor of the least senior vampire
     if (mostSenior.offspring.includes(leastSenior)) return mostSenior
 
@@ -77,6 +137,11 @@ class Vampire {
     }
     
   }
+<<<<<<< HEAD
+=======
+
+}
+>>>>>>> traversal
 
 }
 
