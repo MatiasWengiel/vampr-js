@@ -34,10 +34,6 @@ class Vampire {
   isMoreSeniorThan(vampire) {
     const thisVampireGeneration = this.numberOfVampiresFromOriginal;
     const vampireToCompare = vampire.numberOfVampiresFromOriginal;
-<<<<<<< HEAD
-
-    return thisVampireGeneration < vampireToCompare;
-=======
 
     return thisVampireGeneration < vampireToCompare;
   }
@@ -53,7 +49,7 @@ class Vampire {
 
     for (const offspring of this.offspring) {
       const offspringCheck = offspring.vampireWithName(name)
-      if (offspringCheck) { //offspringCheck will either be null (falsey) or the found name (from line 46). So there is no need to check if offspringCheck.name === name again.
+      if (offspringCheck) { //offspringCheck will either be null (falsey) or the found name (from line 46). So there is no need to check if offspringCheck.name === name
         return offspringCheck
       }
     }
@@ -87,7 +83,6 @@ class Vampire {
     }
 
     return millenials
->>>>>>> traversal
   }
 
 
@@ -105,17 +100,10 @@ class Vampire {
     //Quick checks to see if the root vampire is involved (root vampire has no creator)
     if (!this.creator) return this
     if (!vampire.creator) return vampire
-<<<<<<< HEAD
 
     //Quick check to see if the vampires compared are the same
     if (this === vampire) return this
 
-=======
-
-    //Quick check to see if the vampires compared are the same
-    if (this === vampire) return this
-
->>>>>>> traversal
     //Quick check to see if the most senior vampire is the direct ancestor of the least senior vampire
     if (mostSenior.offspring.includes(leastSenior)) return mostSenior
 
@@ -137,12 +125,8 @@ class Vampire {
     }
     
   }
-<<<<<<< HEAD
-=======
-
-}
->>>>>>> traversal
 
 }
 
 module.exports = Vampire;
+
